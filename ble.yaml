@@ -1,0 +1,257 @@
+esphome:
+  name: bletest
+  friendly_name: NCC1701
+
+esp32:
+  board: esp32dev
+
+# Wi-Fi
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# OTA & API
+ota:
+  platform: esphome
+  password: "a9e432faf2ed163807aca16900663e46"
+
+api:
+  encryption:
+    key: "97h68mAxK44gbGUQlmR9XieQm6M4y5EHGUKQAtD+Zrg="
+
+logger:
+
+# BLE-tracker
+esp32_ble_tracker:
+
+# BLE-client voor Playmobil Enterprise
+ble_client:
+  - mac_address: "FC:45:C3:25:D2:EF"
+    id: playmobil_enterprise
+
+# Één knop: Red Alert
+button:
+  - platform: template
+    name: "Red Alert"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x07, 0x02, 0x00, 0xFF]
+
+  - platform: template
+    name: "Photon Torpedo"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x07, 0x03, 0x00, 0xFF]
+
+  - platform: template
+    name: "Engage Warp"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x07, 0x01, 0x00, 0xFF]
+
+
+  - platform: template
+    name: "Boatswain Whistle"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x02, 0xC8, 0xFF]
+
+
+  - platform: template
+    name: "Disconnect"
+    on_press:
+      - ble_client.disconnect:
+          id: playmobil_enterprise
+
+
+  - platform: template
+    name: "Connect"
+    on_press:
+      - ble_client.connect:
+          id: playmobil_enterprise
+
+  - platform: template
+    name: "Console Lights"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x04, 0x01, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Secondary Panel Alert"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x04, 0x02, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Photon Torpedo Full"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x04, 0x03, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Warp Nacelles"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x04, 0x07, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Photon Torpedo Twice"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x05, 0x01, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Dilithium Core Pulse"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x05, 0x02, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Nacelle Warp Jump"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x05, 0x07, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Warp Drive"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x07, 0x01, 0x00, 0xFF]
+
+
+
+  - platform: template
+    name: "Toggle Power"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x07, 0x04, 0x00, 0xFF]
+
+  - platform: template
+    name: "Bridge Ambient"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x01, 0xC8, 0xFF]
+
+  
+  - platform: template
+    name: "Run Astrogator"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x03, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Dilithium Core Removed"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x04, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Photon Torpedo Fire"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x05, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Captain James Kirk"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x06, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Red Alert (Audio)"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x07, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Live Long and Prosper"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x08, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Dilithium Core Restored"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x09, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Enter Warp Drive"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x0A, 0xC8, 0xFF]
+
+  - platform: template
+    name: "Dematerialization"
+    on_press:
+      - ble_client.ble_write:
+          id: playmobil_enterprise
+          service_uuid: "bc2f4cc6-aaef-4351-9034-d66268e328f0"
+          characteristic_uuid: "06d1e5e7-79ad-4a71-8faa-373789f7d93c"
+          value: [0xAA, 0x08, 0x0B, 0xC8, 0xFF]
