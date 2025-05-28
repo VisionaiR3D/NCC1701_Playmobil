@@ -112,200 +112,81 @@ Once online, Home Assistant will discover a device named **NCC1701** with a seri
 
 ---
 
-## **🛠️ Command Reference**
+## **🛠️ Command & communication Reference**
 
-All commands use the packet structure:
+Name: Pm_USSE_5D2EF
+Service UUID: bc2f4cc6-aaef-4351-9034-d66268e328f0
+Write Characteristic UUID: 06d1e5e7-79ad-4a71-8faa-373789f7d93c
 
-\[0xAA, FRAME, COMMAND, PARAMETER, 0xFF\]
+Hex Payload:
 
-#
-Command Name
-Hex Payload
-Bytes Array
-Description
-1
-Warpdrive
-AA070100FF
+1 Engage warp drive (Light & Audio)
 0xAA 0x07 0x01 0x00 0xFF
-Engage warp drive
-2
-Photon Torpedo
-AA070300FF
+
+2 Photon Torpedo (Light & Audio)
 0xAA 0x07 0x03 0x00 0xFF
-Fire photon torpedo
-3
-Alert
-AA070200FF
+
+3 Red Alert (Light & Audio)
 0xAA 0x07 0x02 0x00 0xFF
-Red alert
-4
-Toggle Power
-AA070400FF
+
+4 Toggle Power
 0xAA 0x07 0x04 0x00 0xFF
+
 Power on/off
-5
-Run Astrogator
-AA0803C8FF
+5 Run Astrogator (Audio)
 0xAA 0x08 0x03 0xC8 0xFF
-Run astrogator sequence
-6
-PhotonTorpedo Fire
-AA0805C8FF
+
+6 PhotonTorpedo Fire (Audio) 
 0xAA 0x08 0x05 0xC8 0xFF
-“Photon torpedo fire” audio/FX
-7
-Bridge Ambient
-AA0801C8FF
+
+7 Bridge Ambient (Audio)
 0xAA 0x08 0x01 0xC8 0xFF
-Bridge ambient lighting/sound
-8
-Boatswain Whistle
-AA0802C8FF
+
+8 Boatswain’s whistle (Audio)
 0xAA 0x08 0x02 0xC8 0xFF
-Boatswain’s whistle
-9
-Red Alert
-AA0807C8FF
+
+9 Red Alert (Audio)
 0xAA 0x08 0x07 0xC8 0xFF
-Siren and red-flash
-10
-Dilithium Core Removed
-AA0804C8FF
+
+10 Dilithium Core Removed (Audio)
 0xAA 0x08 0x04 0xC8 0xFF
-“Dilithium core removed” alert
-11
-This Is Captain James Kirk
-AA0806C8FF
+
+11 This Is Captain James Kirk (Audio)
 0xAA 0x08 0x06 0xC8 0xFF
-“This is James T. Kirk” audio
-12
-Enter Warp Drive
-AA080AC8FF
+
+12 Enter Warp Drive (Audio)
 0xAA 0x08 0x0A 0xC8 0xFF
-“Engage warp drive” confirmation
-13
-Live Long and Prosper
-AA0808C8FF
+
+13 Live Long and Prosper (Audio)
 0xAA 0x08 0x08 0xC8 0xFF
-“Live long and prosper” audio
-14
-Dilithium Core Restored
-AA0809C8FF
+
+14 Dilithium Core Restored (Audio)
 0xAA 0x08 0x09 0xC8 0xFF
-Dilithium core restored alert
-15
-Dematerialization
-AA080BC8FF
+
+15 Dematerialization (Audio)
 0xAA 0x08 0x0B 0xC8 0xFF
-Transporter dematerialization FX
-16
-Alert (panel)
-AA0402C8FF
+
+16 Alert (Lights)
 0xAA 0x04 0x02 0xC8 0xFF
-Secondary panel alert flash
-17
-Console Lights
-AA0401C8FF
+
+17 Console Lights (Lights)
 0xAA 0x04 0x01 0xC8 0xFF
-Console light sequence
-18
-Photon Torpedo Full
-AA0403C8FF
+
+18 Photon Torpedo Full (Lights)
 0xAA 0x04 0x03 0xC8 0xFF
-Full-power torpedo charging lights
-19
-Dilithium Core
-AA0502C8FF
+
+19 Dilithium Core (Lights)
 0xAA 0x05 0x02 0xC8 0xFF
-Dilithium core pulsing
-20
-Photon Torpedo Twice
+
+20 Photon Torpedo Twice (Lights)
 AA0501C8FF
 0xAA 0x05 0x01 0xC8 0xFF
-Double torpedo firing sequence
-21
-Warp Nacelles
-AA0407C8FF
+
+21 Warp Nacelles (Lights)
 0xAA 0x04 0x07 0xC8 0xFF
-Warp nacelles glow/pulse
-22
-Nacelles Warp Jump
-AA0507C8FF
+
+22 Nacelles Warp Jump (Lights)
 0xAA 0x05 0x07 0xC8 0xFF
-Nacelle warp-jump animation
-
-
-
-Command
-Hex Code
-Decimal Bytes
-
-WARP DRIVE 
-AA 07 01 00 FF
-[170, 7, 1, 0, 255]
-PHOTON TORPEDO 
-AA 07 03 00 FF
-[170, 7, 3, 0, 255]
-ALERT 
-AA 07 02 00 FF
-[170, 7, 2, 0, 255]
-ON/OFF (toggle) 
-AA 07 04 00 FF
-[170, 7, 4, 0, 255]
-RUN ASTROGATOR
-AA 08 03 C8 FF
-[170, 8, 3, 200, 255]
-PHOTON TORPEDO FIRE 
-AA 08 05 C8 FF
-[170, 8, 5, 200, 255]
-BRIDGE AMBIENT 
-AA 08 01 C8 FF
-[170, 8, 1, 200, 255]
-BOATSWAIN WHISTLE 
-AA 08 02 C8 FF
-[170, 8, 2, 200, 255]
-RED ALERT
-AA 08 07 C8 FF
-[170, 8, 7, 200, 255]
-DILITHIUMCORE REMOVED 
-AA 08 04 C8 FF
-[170, 8, 4, 200, 255]
-“CAPTAIN JAMES KIRK” 
-AA 08 06 C8 FF
-[170, 8, 6, 200, 255]
-ENTER WARP DRIVE 
-AA 08 0A C8 FF
-[170, 8, 10, 200, 255]
-LIVE LONG AND PROSPER 
-AA 08 08 C8 FF
-[170, 8, 8, 200, 255]
-DILITHIUMCORE RESTORED 
-AA 08 09 C8 FF
-[170, 8, 9, 200, 255]
-DEMATERIALIZATION 
-AA 08 0B C8 FF
-[170, 8, 11, 200, 255]
-ALERT (red) 
-AA 04 02 C8 FF
-[170, 4, 2, 200, 255]
-CONSOLE LIGHTS 
-AA 04 01 C8 FF
-[170, 4, 1, 200, 255]
-PHOTON TORPEDO (full) 
-AA 04 03 C8 FF
-[170, 4, 3, 200, 255]
-DILITHIUMCORE 
-AA 05 02 C8 FF
-[170, 5, 2, 200, 255]
-WARP NACELLES 
-AA 04 07 C8 FF
-[170, 4, 7, 200, 255]
-PHOTON TORPEDO TWICE 
-AA 05 01 C8 FF
-[170, 5, 1, 200, 255]
-NACELLES WARP JUMP 
-AA 05 07 C8 FF
-[170, 5, 7, 200, 255]
 
 
 
