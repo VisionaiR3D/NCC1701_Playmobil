@@ -115,8 +115,11 @@ Once online, Home Assistant will discover a device named **NCC1701** with a seri
 ## **🛠️ Command & communication Reference**
 
 Name: Pm_USSE_5D2EF
+
 Service UUID: bc2f4cc6-aaef-4351-9034-d66268e328f0
+
 Write Characteristic UUID: 06d1e5e7-79ad-4a71-8faa-373789f7d93c
+
 
 Hex Payload:
 
