@@ -1,5 +1,9 @@
 # **Playmobil Enterprise BLE Controller**
 
+![17486854314256328818201753533605](https://github.com/user-attachments/assets/0786ae3b-b04c-4905-b89a-c17973bccdc9)
+
+
+
 A replacement for the official Android **Playmobil Star Trek Enterprise AR** app—which has been crashing on launch—and an integration guide for Home Assistant. Use your Android phone or an ESP32 to control the U.S.S. Enterprise bridge via BLE with one-tap buttons or Home Assistant switches.
 
 Download the .apk file from the releases page and install it on your Android device to control your Playmobil Enterprise. 
