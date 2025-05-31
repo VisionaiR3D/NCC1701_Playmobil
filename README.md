@@ -1,6 +1,7 @@
 # **Playmobil Enterprise BLE Controller**
 
-![17486854314256328818201753533605](https://github.com/user-attachments/assets/60403f93-de2e-44f6-bf25-ff0db3778a84)
+![file_00000000ba1c61f4959f70e35bb5e774](https://github.com/user-attachments/assets/58fd951f-fb68-4574-a117-a1bb356548e5)
+
 
 
 
