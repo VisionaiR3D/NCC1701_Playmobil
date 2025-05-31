@@ -198,6 +198,7 @@ Power on/off
 22 Nacelles Warp Jump (Lights)
 0xAA 0x05 0x07 0xC8 0xFF
 
+![file_00000000344461f5a45809b87108bb72 (2)](https://github.com/user-attachments/assets/ffd6f4aa-216d-40f6-9d13-dd01614a047d)
 
 
 ---
