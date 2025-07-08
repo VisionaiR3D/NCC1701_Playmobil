@@ -140,29 +140,29 @@ Name starts with: `Pm_USSE_`
 
 | #   | Command Name                     | Hex Payload  | Decimal Bytes           | Description                    | Type   |
 |-----|---------------------------------|--------------|------------------------|-------------------------------|--------|
-| 1   | Engage Warp Drive (Light & Audio)| AA0701FFFF   | [170, 7, 1, 255, 255]  | Alternate Warp Start           | Mixed  |
-| 2   | Photon Torpedo (Light & Audio)  | AA070300FF   | [170, 7, 3, 0, 255]    | Torpedo Trigger (Audio + Light)| Mixed  |
-| 3   | Red Alert (Light & Audio)       | AA070200FF   | [170, 7, 2, 0, 255]    | Audio + Light Alert Trigger    | Mixed  |
-| 4   | Toggle Power                    | AA070400FF   | [170, 7, 4, 0, 255]    | General Light Reset / Off      | Other  |
-| 5   | Run Astrogator (Audio)          | AA0803C8FF   | [170, 8, 3, 200, 255]  | Nav Sensor Scan                | Audio  |
-| 6   | Photon Torpedo Fire (Audio)     | AA0805C8FF   | [170, 8, 5, 200, 255]  | Photon Torpedo Fire (Audio)    | Audio  |
-| 7   | Bridge Ambient (Audio)          | AA0801C8FF   | [170, 8, 1, 200, 255]  | Low Hum + Light                | Audio  |
-| 8   | Boatswain’s Whistle (Audio)     | AA0802C8FF   | [170, 8, 2, 200, 255]  | Signal Whistle                | Audio  |
-| 9   | Red Alert (Audio)               | AA0807C8FF   | [170, 8, 7, 200, 255]  | Red Alert Siren               | Audio  |
-| 10  | Dilithium Core Removed (Audio)  | AA0804C8FF   | [170, 8, 4, 200, 255]  | Voice Line                    | Audio  |
-| 11  | This Is Captain James Kirk (Audio)| AA0806C8FF | [170, 8, 6, 200, 255]  | Audio Only                    | Audio  |
-| 12  | Enter Warp Drive (Audio)        | AA080AC8FF   | [170, 8, 10, 200, 255] | Confirmation Audio            | Audio  |
-| 13  | Live Long and Prosper (Audio)   | AA0808C8FF   | [170, 8, 8, 200, 255]  | Audio Only                    | Audio  |
-| 14  | Dilithium Core Restored (Audio) | AA0809C8FF   | [170, 8, 9, 200, 255]  | Voice Line                    | Audio  |
-| 15  | Dematerialization (Audio)       | AA080BC8FF   | [170, 8, 11, 200, 255] | Transporter Sound             | Audio  |
-| 16  | Red Alert (Pulsing Lights)      | AA0402C8FF   | [170, 4, 2, 200, 255]  | Flashing Red Alert Lights     | Light  |
+| 1   | Engage Warp Drive               | AA0701FFFF   | [170, 7, 1, 255, 255] | Alternate Warp Start          | Mixed  |
+| 2   | Photon Torpedo                  | AA070300FF   | [170, 7, 3, 0, 255]    | Torpedo Trigger               | Mixed  |
+| 3   | Red Alert                       | AA070200FF   | [170, 7, 2, 0, 255]    | Audio + Light Alert Trigger   | Mixed  |
+| 4   | Toggle Power                    | AA070400FF   | [170, 7, 4, 0, 255]    | General Light Reset / Off     | Other  |
+| 5   | Run Astrogator                  | AA0803C8FF   | [170, 8, 3, 200, 255]  | Nav Sensor Scan               | Audio  |
+| 6   | Photon Torpedo Fire             | AA0805C8FF   | [170, 8, 5, 200, 255]  | Photon Torpedo Fire (Audio)   | Audio  |
+| 7   | Bridge Ambient                  | AA0801C8FF   | [170, 8, 1, 200, 255]  | Low Hum + Light               | Audio  |
+| 8   | Boatswain’s Whistle             | AA0802C8FF   | [170, 8, 2, 200, 255]  | Signal Whistle                | Audio  |
+| 9   | Red Alert                       | AA0807C8FF   | [170, 8, 7, 200, 255]  | Red Alert Siren               | Audio  |
+| 10  | Dilithium Core Removed          | AA0804C8FF   | [170, 8, 4, 200, 255]  | Voice Line                    | Audio  |
+| 11  | This Is Captain James Kirk      | AA0806C8FF | [170, 8, 6, 200, 255]  | Audio Only                    | Audio  |
+| 12  | Enter Warp Drive                | AA080AC8FF   | [170, 8, 10, 200, 255] | Confirmation Audio            | Audio  |
+| 13  | Live Long and Prosper           | AA0808C8FF   | [170, 8, 8, 200, 255]  | Audio Only                    | Audio  |
+| 14  | Dilithium Core Restored         | AA0809C8FF   | [170, 8, 9, 200, 255]  | Voice Line                    | Audio  |
+| 15  | Dematerialization               | AA080BC8FF   | [170, 8, 11, 200, 255] | Dematerialization Sound       | Audio  |
+| 16  | Red Alert (Pulsing)             | AA0402C8FF   | [170, 4, 2, 200, 255]  | Flashing Red Alert Lights     | Light  |
 | 17  | Console Lights (Pulsing)        | AA0401C8FF   | [170, 4, 1, 200, 255]  | Bridge / Eng. Panel Blinking  | Light  |
-| 18  | Photon Torpedo Full (Lights)    | AA0403C8FF   | [170, 4, 3, 200, 255]  | Full-Power Torpedo Charging   | Light  |
+| 18  | Photon Torpedo Full             | AA0403C8FF   | [170, 4, 3, 200, 255]  | Full-Power Torpedo Charging   | Light  |
 | 19  | Dilithium Core (Pulsing)        | AA0406C8FF   | [170, 4, 6, 200, 255]  | Glowing Chamber Animation     | Light  |
-| 20  | Photon Torpedo Twice (Lights)   | AA0501C8FF   | [170, 5, 1, 200, 255]  | Double Torpedo Firing         | Light  |
+| 20  | Photon Torpedo Twice            | AA0501C8FF   | [170, 5, 1, 200, 255]  | Double Torpedo Firing         | Light  |
 | 21  | Warp Nacelles (Pulsing)         | AA0407C8FF   | [170, 4, 7, 200, 255]  | Nacelles Glow                 | Light  |
-| 22  | Nacelle Warp Jump (Lights)      | AA0507C8FF   | [170, 5, 7, 200, 255]  | Jump Effect Lighting          | Light  |
-| 23  | Red Alert (Static Lights)       | AA0602C8FF   | [170, 6, 2, 200, 255]  | Non-blinking Red Alert Lights | Light  |
+| 22  | Nacelle Warp Jump               | AA0507C8FF   | [170, 5, 7, 200, 255]  | Jump Effect Lighting          | Light  |
+| 23  | Red Alert (Static)              | AA0602C8FF   | [170, 6, 2, 200, 255]  | Non-blinking Red Alert Lights | Light  |
 | 24  | Console Lights (Static)         | AA0601C8FF   | [170, 6, 1, 200, 255]  | Bridge / Eng. Panel Solid     | Light  |
 | 25  | Dilithium Core (Static)         | AA0606C8FF   | [170, 6, 6, 200, 255]  | Fixed Chamber Illumination    | Light  |
 | 26  | Warp Nacelles (Static)          | AA0607C8FF   | [170, 6, 7, 200, 255]  | Solid Nacelle Lighting        | Light  |
