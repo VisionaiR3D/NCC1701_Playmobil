@@ -126,36 +126,62 @@ Name starts with: `Pm_USSE_`
 **Service UUID:** `bc2f4cc6-aaef-4351-9034-d66268e328f0`  
 **Write Characteristic UUID:** `06d1e5e7-79ad-4a71-8faa-373789f7d93c`
 
-### Hex Payload Commands
+🔧 Hex Payload Commands – Sorted by Category & Code
+| #  | Command Name                          | Hex Payload   | Description                             | Type   |
+|----|---------------------------------------|---------------|-----------------------------------------|--------|
+| **Audio Only**                             |               |                                         |        |
+| 01 | Bridge Ambient                        | AA0801C8FF    | Subtle bridge hum                       | Audio  |
+| 02 | Boatswain’s Whistle                   | AA0802C8FF    | Signal whistle                          | Audio  |
+| 03 | Run Astrogator                        | AA0803C8FF    | Navigation scanner sound                | Audio  |
+| 04 | Dilithium Core Removed                | AA0804C8FF    | Voice line                              | Audio  |
+| 05 | Fire Photon Torpedo (Audio Only)      | AA0805C8FF    | Torpedo fire sound                      | Audio  |
+| 06 | This is Captain Kirk                  | AA0806C8FF    | Voice line                              | Audio  |
+| 07 | Red Alert Siren                       | AA0807C8FF    | Audio-only red alert                    | Audio  |
+| 08 | Live Long and Prosper                 | AA0808C8FF    | Voice line                              | Audio  |
+| 09 | Dilithium Core Restored               | AA0809C8FF    | Voice line                              | Audio  |
+| 10 | Enter Warp Drive (Confirmation)       | AA080AC8FF    | Warp drive confirmation sound           | Audio  |
+| 11 | Dematerialization (Transporter)       | AA080BC8FF    | Transporter sound                       | Audio  |
 
-| #   | Command Name                     | Hex Payload  | Decimal Bytes           | Description                    | Type   |
-|-----|---------------------------------|--------------|------------------------|-------------------------------|--------|
-| 1   | Engage Warp Drive               | AA0701FFFF   | [170, 7, 1, 255, 255] | Alternate Warp Start          | Mixed  |
-| 2   | Photon Torpedo                  | AA070300FF   | [170, 7, 3, 0, 255]    | Torpedo Trigger               | Mixed  |
-| 3   | Red Alert                       | AA070200FF   | [170, 7, 2, 0, 255]    | Audio + Light Alert Trigger   | Mixed  |
-| 4   | Toggle Power                    | AA070400FF   | [170, 7, 4, 0, 255]    | General Light Reset / Off     | Other  |
-| 5   | Run Astrogator                  | AA0803C8FF   | [170, 8, 3, 200, 255]  | Nav Sensor Scan               | Audio  |
-| 6   | Photon Torpedo Fire             | AA0805C8FF   | [170, 8, 5, 200, 255]  | Photon Torpedo Fire (Audio)   | Audio  |
-| 7   | Bridge Ambient                  | AA0801C8FF   | [170, 8, 1, 200, 255]  | Low Hum + Light               | Audio  |
-| 8   | Boatswain’s Whistle             | AA0802C8FF   | [170, 8, 2, 200, 255]  | Signal Whistle                | Audio  |
-| 9   | Red Alert                       | AA0807C8FF   | [170, 8, 7, 200, 255]  | Red Alert Siren               | Audio  |
-| 10  | Dilithium Core Removed          | AA0804C8FF   | [170, 8, 4, 200, 255]  | Voice Line                    | Audio  |
-| 11  | This Is Captain James Kirk      | AA0806C8FF | [170, 8, 6, 200, 255]  | Audio Only                    | Audio  |
-| 12  | Enter Warp Drive                | AA080AC8FF   | [170, 8, 10, 200, 255] | Confirmation Audio            | Audio  |
-| 13  | Live Long and Prosper           | AA0808C8FF   | [170, 8, 8, 200, 255]  | Audio Only                    | Audio  |
-| 14  | Dilithium Core Restored         | AA0809C8FF   | [170, 8, 9, 200, 255]  | Voice Line                    | Audio  |
-| 15  | Dematerialization               | AA080BC8FF   | [170, 8, 11, 200, 255] | Dematerialization Sound       | Audio  |
-| 16  | Red Alert (Pulsing)             | AA0402C8FF   | [170, 4, 2, 200, 255]  | Flashing Red Alert Lights     | Light  |
-| 17  | Console Lights (Pulsing)        | AA0401C8FF   | [170, 4, 1, 200, 255]  | Bridge / Eng. Panel Blinking  | Light  |
-| 18  | Photon Torpedo Full             | AA0403C8FF   | [170, 4, 3, 200, 255]  | Full-Power Torpedo Charging   | Light  |
-| 19  | Dilithium Core (Pulsing)        | AA0406C8FF   | [170, 4, 6, 200, 255]  | Glowing Chamber Animation     | Light  |
-| 20  | Photon Torpedo Twice            | AA0501C8FF   | [170, 5, 1, 200, 255]  | Double Torpedo Firing         | Light  |
-| 21  | Warp Nacelles (Pulsing)         | AA0407C8FF   | [170, 4, 7, 200, 255]  | Nacelles Glow                 | Light  |
-| 22  | Nacelle Warp Jump               | AA0507C8FF   | [170, 5, 7, 200, 255]  | Jump Effect Lighting          | Light  |
-| 23  | Red Alert (Static)              | AA0602C8FF   | [170, 6, 2, 200, 255]  | Non-blinking Red Alert Lights | Light  |
-| 24  | Console Lights (Static)         | AA0601C8FF   | [170, 6, 1, 200, 255]  | Bridge / Eng. Panel Solid     | Light  |
-| 25  | Dilithium Core (Static)         | AA0606C8FF   | [170, 6, 6, 200, 255]  | Fixed Chamber Illumination    | Light  |
-| 26  | Warp Nacelles (Static)          | AA0607C8FF   | [170, 6, 7, 200, 255]  | Solid Nacelle Lighting        | Light  |
+| **Static Lights**                          |               |                                         |        |
+| 12 | Console Lights (Static)               | AA0601C8FF    | Bridge consoles blue (solid)            | Light  |
+| 13 | Console Lights OFF                    | AA060100FF    | Bridge console lights Off               | Light  |
+| 14 | Red Alert (Static)                    | AA0602C8FF    | Solid red alert lights                  | Light  |
+| 15 | Red Alert OFF                         | AA060200FF    | Turns off red alert                     | Light  |
+| 16 | Photon Torpedo Light (Static)         | AA0603C8FF    | Solid torpedo indicator                 | Light  |
+| 17 | Photon Torpedo Light OFF              | AA060300FF    | Torpedo light Off                       | Light  |
+| 18 | Side Console (Blue Static)            | AA0604C8FF    | Warp core console – blue light          | Light  |
+| 19 | Side Console (Blue OFF)               | AA060400FF    | Blue side console Off                   | Light  |
+| 20 | Side Console (Red Static)             | AA0605C8FF    | Warp core console – red light           | Light  |
+| 21 | Side Console (Red OFF)                | AA060500FF    | Red side console Off                    | Light  |
+| 22 | Dilithium Core (Static)               | AA0606C8FF    | Solid core chamber light                | Light  |
+| 23 | Dilithium Core OFF                    | AA060600FF    | Turns off core light                    | Light  |
+| 24 | Warp Nacelles (Static)                | AA0607C8FF    | Solid nacelle glow                      | Light  |
+
+| **Pulsing / Blinking Lights**              |               |                                         |        |
+| 25 | Console Lights (Pulsing)              | AA0401C8FF    | Blinking bridge consoles                | Light  |
+| 26 | Console Lights OFF                    | AA040100FF    | Bridge console pulsing Off              | Light  |
+| 27 | Red Alert (Pulsing)                   | AA0402C8FF    | Flashing red alert light                | Light  |
+| 28 | Red Alert OFF                         | AA040200FF    | Turns off red alert light               | Light  |
+| 29 | Photon Torpedo Light (Pulsing)        | AA0403C8FF    | Torpedo charging/blinking               | Light  |
+| 30 | Photon Torpedo Light OFF              | AA040300FF    | Torpedo light Off                       | Light  |
+| 31 | Side Console (Red Blinking)           | AA0404C8FF    | Flashing red side light (core)          | Light  |
+| 32 | Dilithium Core (Pulsing)              | AA0406C8FF    | Glowing core chamber                    | Light  |
+| 33 | Warp Nacelles (Pulsing)               | AA0407C8FF    | Animated nacelle glow                   | Light  |
+
+| **Special Effects (Light Only)**           |               |                                         |        |
+| 34 | Photon Torpedo x2                     | AA0501C8FF    | Double torpedo light flash              | Light  |
+| 35 | Nacelle Warp Jump                     | AA0507C8FF    | Nacelle jump lighting                   | Light  |
+
+| **Mixed Light + Audio Effects**            |               |                                         |        |
+| 36 | Red Alert Combo                       | AA070200FF    | Flashing lights + red alert siren       | Mixed  |
+| 37 | Photon Torpedo Combo                  | AA070300FF    | Torpedo fire with sound + light         | Mixed  |
+| 38 | Warp Drive Combo                      | AA0701FFFF    | Warp lighting + confirmation audio      | Mixed  |
+
+| **Utility / System**                       |               |                                         |        |
+| 39 | Toggle Power / Reset                  | AA070400FF    | Turn off all lights & Audio (reset)     | Other  |
+
+
+
 
 
 
