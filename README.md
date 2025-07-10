@@ -141,7 +141,6 @@ Name starts with: `Pm_USSE_`
 | 09 | Dilithium Core Restored               | AA0809C8FF    | Voice line                              | Audio  |
 | 10 | Enter Warp Drive (Confirmation)       | AA080AC8FF    | Warp drive confirmation sound           | Audio  |
 | 11 | Dematerialization (Transporter)       | AA080BC8FF    | Transporter sound                       | Audio  |
-
 | **Static Lights**                          |               |                                         |        |
 | 12 | Console Lights (Static)               | AA0601C8FF    | Bridge consoles blue (solid)            | Light  |
 | 13 | Console Lights OFF                    | AA060100FF    | Bridge console lights Off               | Light  |
@@ -156,7 +155,6 @@ Name starts with: `Pm_USSE_`
 | 22 | Dilithium Core (Static)               | AA0606C8FF    | Solid core chamber light                | Light  |
 | 23 | Dilithium Core OFF                    | AA060600FF    | Turns off core light                    | Light  |
 | 24 | Warp Nacelles (Static)                | AA0607C8FF    | Solid nacelle glow                      | Light  |
-
 | **Pulsing / Blinking Lights**              |               |                                         |        |
 | 25 | Console Lights (Pulsing)              | AA0401C8FF    | Blinking bridge consoles                | Light  |
 | 26 | Console Lights OFF                    | AA040100FF    | Bridge console pulsing Off              | Light  |
@@ -167,16 +165,13 @@ Name starts with: `Pm_USSE_`
 | 31 | Side Console (Red Blinking)           | AA0404C8FF    | Flashing red side light (core)          | Light  |
 | 32 | Dilithium Core (Pulsing)              | AA0406C8FF    | Glowing core chamber                    | Light  |
 | 33 | Warp Nacelles (Pulsing)               | AA0407C8FF    | Animated nacelle glow                   | Light  |
-
 | **Special Effects (Light Only)**           |               |                                         |        |
 | 34 | Photon Torpedo x2                     | AA0501C8FF    | Double torpedo light flash              | Light  |
 | 35 | Nacelle Warp Jump                     | AA0507C8FF    | Nacelle jump lighting                   | Light  |
-
 | **Mixed Light + Audio Effects**            |               |                                         |        |
 | 36 | Red Alert Combo                       | AA070200FF    | Flashing lights + red alert siren       | Mixed  |
 | 37 | Photon Torpedo Combo                  | AA070300FF    | Torpedo fire with sound + light         | Mixed  |
 | 38 | Warp Drive Combo                      | AA0701FFFF    | Warp lighting + confirmation audio      | Mixed  |
-
 | **Utility / System**                       |               |                                         |        |
 | 39 | Toggle Power / Reset                  | AA070400FF    | Turn off all lights & Audio (reset)     | Other  |
 
