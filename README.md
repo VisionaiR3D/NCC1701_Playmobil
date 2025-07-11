@@ -176,46 +176,64 @@ Name starts with: `Pm_USSE_`
 | 39 | Toggle Power / Reset                  | AA070400FF    | Turn off all lights & Audio (reset)     | Other  |
 
 
+## Brightness & Volume Control
 
-Brightness & Volume Control
-Structure of a BLE Command
-Each BLE command consists of 5 bytes, formatted as follows:
+### Structure of a BLE Command
+
+Each BLE command consists of **5 bytes**, formatted as follows:
 
 AA XX YY ZZ FF
+
+sql
+Kopiëren
+
 Or in full hexadecimal notation:
 
-Kopiëren
 0xAA 0xXX 0xYY 0xZZ 0xFF
-Byte	Position	Meaning	Example (AA0603C8FF)
-AA	Byte 1	Constant prefix (start byte)	AA = All commands start with this
-XX	Byte 2	Command Category / Group	06 = Static light group
-YY	Byte 3	Specific action/device	03 = Photon torpedo light
-ZZ	Byte 4	Intensity / Volume / Setting	C8 = Brightness 200 / 255 (~90%)
-FF	Byte 5	End byte / confirmation / checksum*	FF = Always ends with this
 
-Brightness / Volume Intensity Lookup Table
-% Level	Decimal	Hex (4th Byte)	Example Command (Static Torpedo Light)
-10%	25	19	AA060319FF ← Static torpedo @ 10%
-20%	51	33	AA060333FF ← Static torpedo @ 20%
-25%	64	40	AA060340FF ← Static torpedo @ 25%
-30%	77	4D	AA06034DFF ← Static torpedo @ 30%
-40%	102	66	AA060366FF ← Static torpedo @ 40%
-50%	128	80	AA060380FF ← Static torpedo @ 50%
-60%	153	99	AA060399FF ← Static torpedo @ 60%
-70%	179	B3	AA0603B3FF ← Static torpedo @ 70%
-75%	192	C0	AA0603C0FF ← Static torpedo @ 75%
-80%	204	CC	AA0603CCFF ← Static torpedo @ 80%
-90%	230	E6	AA0603E6FF ← Static torpedo @ 90%
-100%	255	FF	AA0603FFFF ← Static torpedo @ 100%
+yaml
+Kopiëren
 
-Example: Static Photon Torpedo Light Commands
-Command Purpose	Hex Payload	Brightness Level
-50% Brightness	AA060380FF	Medium
-App-default Brightness	AA0603C8FF	Default (~90%)
-Full Overdrive Brightness	AA0603FFFF	Ultra Bright (100%)
+| Byte | Position | Meaning                              | Example (AA0603C8FF)                          |
+|-------|----------|-------------------------------------|----------------------------------------------|
+| AA    | Byte 1   | Constant prefix (start byte)         | `AA` = All commands start with this          |
+| XX    | Byte 2   | Command Category / Group             | `06` = Static light group                     |
+| YY    | Byte 3   | Specific action/device               | `03` = Photon torpedo light                   |
+| ZZ    | Byte 4   | Intensity / Volume / Setting         | `C8` = Brightness 200 / 255 (~90%)            |
+| FF    | Byte 5   | End byte / confirmation / checksum* | `FF` = Always ends with this                   |
 
+---
 
+### Brightness / Volume Intensity Lookup Table
 
+| % Level | Decimal | Hex (4th Byte) | Example Command (Static Torpedo Light)     |
+|---------|---------|----------------|---------------------------------------------|
+| 10%     | 25      | 19             | `AA060319FF` ← Static torpedo @ 10%         |
+| 20%     | 51      | 33             | `AA060333FF` ← Static torpedo @ 20%         |
+| 25%     | 64      | 40             | `AA060340FF` ← Static torpedo @ 25%         |
+| 30%     | 77      | 4D             | `AA06034DFF` ← Static torpedo @ 30%         |
+| 40%     | 102     | 66             | `AA060366FF` ← Static torpedo @ 40%         |
+| 50%     | 128     | 80             | `AA060380FF` ← Static torpedo @ 50%         |
+| 60%     | 153     | 99             | `AA060399FF` ← Static torpedo @ 60%         |
+| 70%     | 179     | B3             | `AA0603B3FF` ← Static torpedo @ 70%         |
+| 75%     | 192     | C0             | `AA0603C0FF` ← Static torpedo @ 75%         |
+| 80%     | 204     | CC             | `AA0603CCFF` ← Static torpedo @ 80%         |
+| 90%     | 230     | E6             | `AA0603E6FF` ← Static torpedo @ 90%         |
+| 100%    | 255     | FF             | `AA0603FFFF` ← Static torpedo @ 100%        |
+
+---
+
+### Example: Static Photon Torpedo Light Commands
+
+| Command Purpose           | Hex Payload  | Brightness Level         |
+|--------------------------|--------------|-------------------------|
+| 50% Brightness           | `AA060380FF` | Medium                  |
+| App-default Brightness   | `AA0603C8FF` | Default (~90%)          |
+| Full Overdrive Brightness| `AA0603FFFF` | Ultra Bright (100%)     |
+
+---
+
+*Note: The fifth byte (`FF`) typically acts as an end byte or checksum to confirm command integrity.*
 
 ---
 
