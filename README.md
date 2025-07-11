@@ -51,7 +51,7 @@ This repository provides two replacement solutions:
 
 * **ESP32 as BLE Client**: Automatically scans and connects to the bridge.  
 * **Momentary Switches**: Each command appears as a switch in HA, firing the packet and resetting instantly.  
-* **Out‑of‑the‑box YAML**: Drop `ble.yaml` into your ESPHome projects.
+* **YAML**: Adjust the name of your Enterprise model (should start with Pm_USSE_) in the ble.yaml file. Drop `ble.yaml` into your ESPHome projects.
 
 ---
 
