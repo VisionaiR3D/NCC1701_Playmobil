@@ -178,35 +178,74 @@ Name starts with: `Pm_USSE_`
 
 ## Brightness & Volume Control
 
+
 ### Structure of a BLE Command
 
-Each BLE command consists of **5 bytes**, formatted as follows:
+Logic Behind the BLE Command Code Scheme
+Each BLE command consists of 5 bytes, each with a specific role that together define the command's meaning and behavior:
 
-AA XX YY ZZ FF
+Byte 1: Constant Prefix (AA)
+This byte is always 0xAA for every command.
+It acts as a start delimiter or signature, letting the device know a valid command is beginning.
+Helps to differentiate command packets from noise or other data.
 
-sql
-Kopiëren
+Byte 2: Command Category / Group (XX)
+This byte identifies the general group or category of the command.
+For example: 06 indicates a static light command group.
+Different values here can represent other types of commands like audio, system commands, or animations.
+Grouping commands makes parsing and processing more efficient and organized.
 
+Byte 3: Specific Action / Device (YY)
+This byte specifies the particular action or device the command targets within the chosen category.
+For example: 03 means the photon torpedo light.
+Other numbers correspond to other specific lights, sounds, or effects.
+This allows one category to control multiple devices or actions.
+
+Byte 4: Intensity / Volume / Setting (ZZ)
+This byte encodes the intensity level of the action, such as brightness or volume.
+The value ranges from 0x00 to 0xFF (0 to 255 decimal), allowing fine control.
+For brightness, a higher value means a brighter light; for audio, it’s louder volume.
+For example, C8 (200 decimal) is about 90% brightness.
+
+Byte 5: End Byte / Confirmation / Checksum (FF)
+This byte is always 0xFF.
+It acts as a command terminator or confirmation byte.
+Ensures that the command packet is complete and valid.
+May serve as a simple checksum or sync byte for the receiving device.
+
+Summary
+Byte	Purpose	Example Value	Meaning
+1	Start prefix	AA	Marks start of command packet
+2	Command category/group	06	Static lights group
+3	Specific device/action	03	Photon torpedo light
+4	Intensity/volume level	C8	Brightness at 200 (approx. 90%)
+5	End byte / checksum	FF	Command terminator
+
+This structured approach lets you:
+
+Easily expand command types and devices by changing bytes 2 and 3.
+Control brightness or volume precisely via byte 4.
+
+Maintain consistent and recognizable packets starting with AA and ending with FF
 Or in full hexadecimal notation:
 
 0xAA 0xXX 0xYY 0xZZ 0xFF
 
-yaml
-Kopiëren
 
-| Byte | Position | Meaning                              | Example (AA0603C8FF)                          |
-|-------|----------|-------------------------------------|----------------------------------------------|
-| AA    | Byte 1   | Constant prefix (start byte)         | `AA` = All commands start with this          |
+
+| Byte | Position  | Meaning                              | Example (AA0603C8FF)                          |
+|-------|----------|--------------------------------------|-----------------------------------------------|
+| AA    | Byte 1   | Constant prefix (start byte)         | `AA` = All commands start with this           |
 | XX    | Byte 2   | Command Category / Group             | `06` = Static light group                     |
 | YY    | Byte 3   | Specific action/device               | `03` = Photon torpedo light                   |
 | ZZ    | Byte 4   | Intensity / Volume / Setting         | `C8` = Brightness 200 / 255 (~90%)            |
-| FF    | Byte 5   | End byte / confirmation / checksum* | `FF` = Always ends with this                   |
+| FF    | Byte 5   | End byte / confirmation / checksum*  | `FF` = Always ends with this                  |
 
 ---
 
 ### Brightness / Volume Intensity Lookup Table
 
-| % Level | Decimal | Hex (4th Byte) | Example Command (Static Torpedo Light)     |
+| % Level | Decimal | Hex (4th Byte) | Example Command (Static Torpedo Light)      |
 |---------|---------|----------------|---------------------------------------------|
 | 10%     | 25      | 19             | `AA060319FF` ← Static torpedo @ 10%         |
 | 20%     | 51      | 33             | `AA060333FF` ← Static torpedo @ 20%         |
@@ -233,9 +272,6 @@ Kopiëren
 
 ---
 
-*Note: The fifth byte (`FF`) typically acts as an end byte or checksum to confirm command integrity.*
-
----
 
 ## **📄 License**
 
