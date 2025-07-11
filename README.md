@@ -177,24 +177,23 @@ Name starts with: `Pm_USSE_`
 
 
 
-Brightness & Volume Controll
-
+Brightness & Volume Control
 Structure of a BLE Command
-Each BLE command is 5 bytes long, formatted as:
+Each BLE command consists of 5 bytes, formatted as follows:
 
 AA XX YY ZZ FF
-Or in full hex:
+Or in full hexadecimal notation:
 
+Kopiëren
 0xAA 0xXX 0xYY 0xZZ 0xFF
-Byte-by-byte explanation:
 Byte	Position	Meaning	Example (AA0603C8FF)
 AA	Byte 1	Constant prefix (start byte)	AA = All commands start with this
 XX	Byte 2	Command Category / Group	06 = Static light group
 YY	Byte 3	Specific action/device	03 = Photon torpedo light
-ZZ	Byte 4	Intensity/Volume/Setting	C8 = Brightness 200/255 (~90%)
+ZZ	Byte 4	Intensity / Volume / Setting	C8 = Brightness 200 / 255 (~90%)
 FF	Byte 5	End byte / confirmation / checksum*	FF = Always ends with this
 
- Brightness / Volume Intensity Lookup Table
+Brightness / Volume Intensity Lookup Table
 % Level	Decimal	Hex (4th Byte)	Example Command (Static Torpedo Light)
 10%	25	19	AA060319FF ← Static torpedo @ 10%
 20%	51	33	AA060333FF ← Static torpedo @ 20%
@@ -209,13 +208,11 @@ FF	Byte 5	End byte / confirmation / checksum*	FF = Always ends with this
 90%	230	E6	AA0603E6FF ← Static torpedo @ 90%
 100%	255	FF	AA0603FFFF ← Static torpedo @ 100%
 
-
-
-Example: Static Photon Torpedo Light
+Example: Static Photon Torpedo Light Commands
 Command Purpose	Hex Payload	Brightness Level
 50% Brightness	AA060380FF	Medium
-App-default Brightness	AA0603C8FF	 
-Full Overdrive Brightness	AA0603FFFF	Ultra Bright
+App-default Brightness	AA0603C8FF	Default (~90%)
+Full Overdrive Brightness	AA0603FFFF	Ultra Bright (100%)
 
 
 
