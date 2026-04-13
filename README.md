@@ -1,5 +1,11 @@
 # **Playmobil Enterprise BLE Controller**
 
+This solution is only for Android. 
+
+IPhone users (and Android users who do not whish to build the app themselves) should use the hardware playmobil enterprise controller. More info here
+www.visionair3d.com/enterprise 
+
+
 ![file_00000000ba1c61f4959f70e35bb5e774](https://github.com/user-attachments/assets/58fd951f-fb68-4574-a117-a1bb356548e5)
 
 
