@@ -1,8 +1,8 @@
-# **Playmobil Enterprise BLE Controller**
+**Playmobil Enterprise BLE Controller**
 
 This solution is only for Android. 
 
-IPhone users (and Android users who do not whish to build the app themselves) should use the hardware playmobil enterprise controller. Get it here
+IPhone users (and Android users who want an independent solution) should use the universal hardware playmobil enterprise controller. Get it here
 www.visionair3d.com/enterprise 
 
 
@@ -15,8 +15,6 @@ www.visionair3d.com/enterprise
 A replacement for the official Android **Playmobil Star Trek Enterprise AR** app—which has been crashing on launch—and an integration guide for Home Assistant. Use your Android phone or an ESP32 to control the U.S.S. Enterprise bridge via BLE with one-tap buttons or Home Assistant switches.
 
 This app is a simpler no AI no voice recognition version of Project Genesis more info here www.visionair3d.com/projectgenesis 
-
-https://youtube.com/playlist?list=PL5y5A9M_bqDc2dj8T-riQO52g_oHlPraH&si=jmnMPMCoWFbfvV6o
 
 Download the .apk file from the releases page and install it on your Android device to control your Playmobil Enterprise. 
 
